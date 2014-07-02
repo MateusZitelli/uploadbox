@@ -13,4 +13,6 @@ gemspec
 # To use debugger
 # gem 'debugger'
 gem 'jquery-rails'
+gem 'requirejs-rails', '~> 0.9.3'
+gem 'blueimp-load-image-rails', '~> 1.9.1'
 

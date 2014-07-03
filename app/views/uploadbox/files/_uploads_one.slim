@@ -10,7 +10,7 @@
       input name="[#{resource.class.name.underscore}]#{upload_name}" data-item="id" type="file"
   - else
     - secure_random = SecureRandom.uuid
-    .uploadbox-image-uploader.uploads-one data-component="FileUploader"
+    .uploadbox-image-uploader.uploads-one data-uploadbox-component="FileUploader"
       - if namespace
         input name="[#{resource.class.name.underscore}][#{namespace}]#{upload_name}" data-item="id" type="hidden" value="#{resource.send(upload_name).try :id}"
       - else

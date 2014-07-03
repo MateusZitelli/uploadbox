@@ -1,6 +1,6 @@
 require ['_manager'], (Manager) ->
 	$(document).ready ->
-    	$('[data-component]').each (i, el) -> Manager.init($(el))
+    	$('[data-uploadbox-component]').each (i, el) -> Manager.init($(el))
 
 
 # require jquery.ui.widget

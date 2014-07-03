@@ -2,7 +2,7 @@
   / forces multipart/form-data
   = f.file_field :temp, style: 'display: none'
 
-  div data-component="GalleryUploader"
+  div data-uploadbox-component="GalleryUploader"
     - if browser.ie? and browser.version.to_i <= 9
       - if namespace
         input name="[#{resource.class.name.underscore}][#{namespace}]#{upload_name}[]" data-item="id" type="file"
@@ -40,7 +40,7 @@
                 = link_to destroy_label, '#', class: 'btn fileupload-exists', remote: true, method: :delete
 
     - for image in resource.send(upload_name)
-      .uploadbox-image-uploader.uploads-many data-component="UploaderPreview" data-container="uploader" style="width: #{width}px; height: #{height}px;"
+      .uploadbox-image-uploader.uploads-many data-uploadbox-component="UploaderPreview" data-container="uploader" style="width: #{width}px; height: #{height}px;"
         - unless browser.ie? and browser.version.to_i <= 9
           - if namespace
             input name="[#{resource.class.name.underscore}][#{namespace}]#{upload_name}[]" data-item="id" type="hidden" value="#{image.id}"

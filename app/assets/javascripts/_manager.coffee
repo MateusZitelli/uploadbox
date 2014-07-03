@@ -4,7 +4,7 @@ define ['require', '_uuid', '_image_uploader', '_uploader_preview', '_gallery_up
       className.charAt(0).toLowerCase() + className.slice(1)
 
     @init = (container) ->
-      classNames = container.data('component').split(' ')
+      classNames = container.data('uploadbox-component').split(' ')
       modules = {
         uuid: require('_uuid'),
         ImageUploader: require('_image_uploader'),
@@ -17,9 +17,9 @@ define ['require', '_uuid', '_image_uploader', '_uploader_preview', '_gallery_up
         if window[className]
           instanceName = Manager.getInstanceName(className)
           unless container.data(instanceName)
-            module = modules[className]
-            if module
-              instance = new (module)(container)
+            loadedModule = modules[className]
+            if loadedModule
+              instance = new (loadedModule)(container)
               container.data(instanceName, instance)
         else
           console.warn "#{className} component not found"

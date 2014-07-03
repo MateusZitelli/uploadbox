@@ -17,9 +17,10 @@ define ['require', '_uuid', '_image_uploader', '_uploader_preview', '_gallery_up
         if window[className]
           instanceName = Manager.getInstanceName(className)
           unless container.data(instanceName)
-            console.log(className)
-            instance = new (modules[className])(container)
-            container.data(instanceName, instance)
+            module = modules[className]
+            if module
+              instance = new (module)(container)
+              container.data(instanceName, instance)
         else
           console.warn "#{className} component not found"
 

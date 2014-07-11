@@ -12,7 +12,6 @@ define ['require', '_uuid', '_image_uploader', '_uploader_preview', '_gallery_up
         GalleryUploader: require('_gallery_uploader'),
         ShowImage: require('_show_image')
       }
-      console.log(modules)
       for className in classNames
         if window[className]
           instanceName = Manager.getInstanceName(className)

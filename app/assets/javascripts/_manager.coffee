@@ -1,4 +1,4 @@
-define ['require', '_uuid', '_image_uploader', '_uploader_preview', '_gallery_uploader', '_show_image'], (require) ->
+define ['require', '_image_uploader', '_uploader_preview', '_gallery_uploader', '_show_image'], (require) ->
   class @Manager
     @getInstanceName: (className) ->
       className.charAt(0).toLowerCase() + className.slice(1)
@@ -6,7 +6,6 @@ define ['require', '_uuid', '_image_uploader', '_uploader_preview', '_gallery_up
     @init = (container) ->
       classNames = container.data('uploadbox-component').split(' ')
       modules = {
-        uuid: require('_uuid'),
         ImageUploader: require('_image_uploader'),
         UploaderPreview: require('_uploader_preview'),
         GalleryUploader: require('_gallery_uploader'),
@@ -22,4 +21,3 @@ define ['require', '_uuid', '_image_uploader', '_uploader_preview', '_gallery_up
               container.data(instanceName, instance)
         else
           console.warn "#{className} component not found"
-

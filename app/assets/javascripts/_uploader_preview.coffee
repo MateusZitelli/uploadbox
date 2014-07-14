@@ -1,4 +1,4 @@
-define ['require', 'jquery', 'load-image', '_uuid'], (require) ->
+define ['require', 'jquery', 'load-image', 'uuid'], (require) ->
   class @UploaderPreview
     constructor: (@container, @file) ->
       @thumbContainer = @container.find('.fileupload-preview.thumbnail')
@@ -84,7 +84,7 @@ define ['require', 'jquery', 'load-image', '_uuid'], (require) ->
       @container.find('.fileupload').hasClass('fileupload-new')
 
     id: =>
-      uuid = require('_uuid')
+      uuid = require('uuid')
       @_id ||= uuid.v4()
 
     progress: (data) =>
@@ -156,4 +156,3 @@ define ['require', 'jquery', 'load-image', '_uuid'], (require) ->
       labels = @container.find('.fileupload-actions .fileupload-new, .fileupload-actions .fileupload-exists')
       labels.each (index, label) ->
         $(label).css({marginLeft: $(label).outerWidth() * -0.5, marginTop: $(label).outerHeight() * -0.5})
-

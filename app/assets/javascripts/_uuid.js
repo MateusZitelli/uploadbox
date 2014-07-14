@@ -14,12 +14,6 @@
   // Node.js crypto-based RNG - http://nodejs.org/docs/v0.6.2/api/crypto.html
   //
   // Moderately fast, high quality
-  if (typeof(_global.require) == 'function') {
-    try {
-      var _rb = _global.require('crypto').randomBytes;
-      _rng = _rb && function() {return _rb(16);};
-    } catch(e) {}
-  }
 
   if (!_rng && _global.crypto && crypto.getRandomValues) {
     // WHATWG crypto-based RNG - http://wiki.whatwg.org/wiki/Crypto
@@ -226,7 +220,7 @@
 
   if (typeof define === 'function' && define.amd) {
     // Publish as AMD module
-    define(function() {return uuid;});
+    define(['crypto'], function() {return uuid;});
   } else if (typeof(module) != 'undefined' && module.exports) {
     // Publish as node.js module
     module.exports = uuid;
@@ -240,6 +234,6 @@
       return uuid;
     };
 
-    _global.uuid = uuid;
+    return uuid;
   }
 }).call(this);
